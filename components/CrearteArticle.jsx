@@ -20,7 +20,7 @@ import { base_url } from "./utils";
 const initialArticleData = {
   title: "",
   shortDescription: "",
-  category: "",
+  category: "Sterilization Basics",
   status: "PUBLISHED",
   tags: [],
   image: null,
@@ -151,11 +151,13 @@ const CrearteArticle = ({ setCreateArticle }) => {
         }
       );
 
-      if (response.data.success) {
+const data = await response.data;
+
+      if (data.success) {
         toast.success("Article created successfully.");
 
         const articleId =
-          response.data.article?._id || response.data.article;
+          data.article
 
         setCreateArticle(false);
         router.push(`/learning-articles/${articleId}/desc`);
@@ -264,7 +266,25 @@ const CrearteArticle = ({ setCreateArticle }) => {
                     Category <span className="text-red-500">*</span>
                   </label>
 
-                  <div className="relative">
+
+                  <select
+                   
+                    name="category"
+                      id="category"
+                      value={articleData.category}
+                      onChange={inputChange}
+                    className="h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm text-slate-900 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+                  >
+{                    ["Sterilization Basics","Steam Sterilization","ETO Sterilization","Plasma Sterilization","CSSD Management",
+"Infection Control","Standards & Guidelines","Case Studies"].map((item,index)=><option value={item} key={index}>{item}</option>)
+
+}
+                    {/* <option value="PUBLISHED">Published</option>
+                    <option value="DRAFT">Draft</option> */}
+                  </select>
+{/* "Sterilization Basics","Steam Sterilization","ETO Sterilization","Plasma Sterilization","CSSD Management",
+"Infection Control","Standards & Guidelines","Case Studies" */}
+                  {/* <div className="relative">
                     <FiFolder className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
 
                     <input
@@ -276,7 +296,7 @@ const CrearteArticle = ({ setCreateArticle }) => {
                       placeholder="For example: Healthcare"
                       className="h-12 w-full rounded-xl border border-slate-300 bg-white pl-11 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                     />
-                  </div>
+                  </div> */}
                 </div>
 
                 <div>

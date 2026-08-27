@@ -1,8 +1,21 @@
+"use client"
 import ExpertSidebar from '@/components/ExpertSidebar'
+import Loading from '@/components/Loading'
 import ThemeProvider from '@/components/ThemeProvider'
-import React from 'react'
+import { loginVerify } from '@/components/verifylogin'
+import React, { useEffect, useState } from 'react'
 
 const layout = ({children}) => {
+
+const [loading,setLoading]=useState(true)
+
+
+useEffect(()=>{loginVerify(setLoading)},[])
+
+if(loading){
+return <Loading  setLoading={setLoading} />
+}
+
   return (<div>
   <ThemeProvider>
 <div className='h-screen flex '>

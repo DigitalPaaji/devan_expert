@@ -28,6 +28,13 @@ import {
 } from "react-icons/fi";
 import { PiArticleNyTimesLight } from "react-icons/pi";
 import { FaYoutube } from "react-icons/fa";
+import { BsFillSignpostFill } from "react-icons/bs";
+import { MdEvent } from "react-icons/md";
+import { ImNewspaper } from "react-icons/im";
+import { GrLogout } from "react-icons/gr";
+import axios from "axios";
+import { base_url } from "./utils";
+import { toast } from "react-toastify";
 
 const menuItems = [
   {
@@ -48,17 +55,32 @@ const menuItems = [
   {
     title: "Upload YouTube Videos",
     icon: FaYoutube,
-    href: "/challenges",
+    href: "/educational",
   },
-  {
-    title: "Educational Content ",
-    icon: FiUserCheck,
-    href: "/champions",
+   {
+    title: "Job Posting",
+    icon: BsFillSignpostFill,
+    href: "/job-posting",
   },
+   {
+    title: "Events",
+    icon: MdEvent ,
+    href: "/events",
+  },
+    {
+    title: "News",
+    icon: ImNewspaper  ,
+    href: "/news",
+  },
+  // {
+  //   title: "Educational Content ",
+  //   icon: FiUserCheck,
+  //   href: "/educational",
+  // },
   {
     title: "Maintain Profile ",
     icon: FiUpload,
-    href: "/certificates",
+    href: "/profile",
   },
 
 ];
@@ -80,6 +102,30 @@ const ExpertSidebar = () => {
       setCollapsed(savedState === "true");
     }
   }, []);
+
+const handelLogout= async()=>{
+  try {
+    const response = await axios.get(`${base_url}/profile/logout`,{
+      withCredentials:true
+    })
+    const data = await response.data;
+    if(data.success){
+      toast.success(data.message);
+      location.reload()
+    }else{
+      toast.error(data.message);
+
+    }
+  } catch (error) {
+          toast.error(error?.response?.data?.message);
+
+  }
+}
+
+
+
+
+
 
   const toggleSidebar = () => {
     setCollapsed((previous) => {
@@ -120,6 +166,7 @@ const ExpertSidebar = () => {
               Management system
             </p>
           </div>
+          
         </div>
 
         <button
@@ -157,12 +204,12 @@ const ExpertSidebar = () => {
             collapsed ? "justify-center px-3" : "justify-between px-5"
           }`}
         >
-          <div className="flex min-w-0 items-center gap-3">
+          <div className="flex min-w-0 items-center gap-3 w-full">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-black text-white dark:bg-white dark:text-black">
               <FiFileText size={21} />
             </div>
 
-            {!collapsed && (
+            {!collapsed && (<div className="flex justify-between items-center w-full">
               <div className="min-w-0">
                 <h2 className="truncate text-lg font-bold">
                   Admin Panel
@@ -172,6 +219,13 @@ const ExpertSidebar = () => {
                   Management system
                 </p>
               </div>
+
+              <div className="relative group">
+                <div className="absolute opacity-0 hidden transition-all duration-500 group-hover:opacity-100  group-hover:inline  top-[150%] text-sm bg-white/60 p-0.5 px-3 rounded-md ">
+                  Logout                </div>
+           <GrLogout  onClick={handelLogout} className="   text-xl font-bold  cursor-pointer" />
+          </div>
+          </div>
             )}
           </div>
 
