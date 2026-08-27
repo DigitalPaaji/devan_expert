@@ -562,7 +562,7 @@ const Page = () => {
 
   return (
 
-    <div className="w-full space-y-6 h-screen overflow-auto">
+    <div className="w-full space-y-6 h-screen overflow-auto px-4">
 
 
       {weekQuestion?.question && (
