@@ -4,23 +4,18 @@ import CrearteArticle from '@/components/CrearteArticle'
 import React, { useState } from 'react'
 
 const page = () => {
+ const [createArticle,setCreateArticle]=useState(false)
 
-    const [createArticle,setCreateArticle]=useState(false)
 
-  return (
+
+return (
     <div>
 
 
-{createArticle &&
-
-<CrearteArticle setCreateArticle={setCreateArticle} />
-}
+{createArticle && <CrearteArticle setCreateArticle={setCreateArticle} />}
 
 
-{!createArticle 
-&& <ArticlesCompo setCreateArticle={setCreateArticle} />
-
-}
+{!createArticle && <ArticlesCompo setCreateArticle={setCreateArticle} />}
 
 
 

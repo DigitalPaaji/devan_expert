@@ -77,10 +77,12 @@ const GetNews = ({setShowCreate}) => {
     }
   };
 
+
+
   return (
     <div className="w-full min-h-screen bg-white dark:bg-black text-black dark:text-white p-4 sm:p-6">
 
-      {/* Header */}
+
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
 
         <div>
@@ -101,7 +103,7 @@ const GetNews = ({setShowCreate}) => {
           </div>
         </div>
 
-        {/* Add Job */}
+      
         <button
           type="button"
           onClick={()=>setShowCreate(true)}
@@ -120,7 +122,7 @@ const GetNews = ({setShowCreate}) => {
         </button>
       </div>
 
-      {/* Search */}
+      
       <div className="mb-5">
         <div className="relative max-w-md">
 
@@ -155,7 +157,7 @@ const GetNews = ({setShowCreate}) => {
         </div>
       </div>
 
-      {/* Table */}
+     
       <div
         className="
           w-full

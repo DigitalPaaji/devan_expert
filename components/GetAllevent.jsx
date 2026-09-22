@@ -77,7 +77,7 @@ const GetAllevent = ({setShowCreate}) => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-black text-black dark:text-white p-4 sm:p-6">
+    <div className="w-full overflow-auto h-screen bg-white dark:bg-black text-black dark:text-white p-4 sm:p-6">
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">

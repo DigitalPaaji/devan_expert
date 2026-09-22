@@ -136,9 +136,7 @@ const Page = () => {
   }, []);
 
 
-  // ==========================================
-  // DASHBOARD DATA
-  // ==========================================
+
 
   const overview = dashboardData?.overview || {};
 
@@ -148,9 +146,6 @@ const Page = () => {
     dashboardData?.newsByCategory || [];
 
 
-  // ==========================================
-  // CONTENT BAR CHART
-  // ==========================================
 
   const contentChartData = {
 
@@ -216,9 +211,7 @@ const Page = () => {
   };
 
 
-  // ==========================================
-  // CONTENT BAR OPTIONS
-  // ==========================================
+  
 
   const contentChartOptions = {
 
@@ -286,10 +279,7 @@ const Page = () => {
   };
 
 
-  // ==========================================
-  // VIEWS / APPLICATIONS LINE CHART
-  // ==========================================
-
+ 
   const activityChartData = {
 
     labels: chart.map(
@@ -347,9 +337,7 @@ const Page = () => {
   };
 
 
-  // ==========================================
-  // ACTIVITY OPTIONS
-  // ==========================================
+
 
   const activityChartOptions = {
 

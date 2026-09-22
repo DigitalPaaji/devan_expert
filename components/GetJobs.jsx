@@ -50,24 +50,12 @@ const GetJobs = ({setShowCreate}) => {
     return jobs.filter(
       (job) =>
         job?.title?.toLowerCase().includes(searchText) ||
-        job?.category?.toLowerCase().includes(searchText) ||
-        job?.status?.toLowerCase().includes(searchText)
+        job?.category?.toLowerCase().includes(searchText)
     );
-  }, [jobs, search]);
+  }, [ jobs,search]);
 
-  const handleView = (id) => {
-    console.log("View job:", id);
 
-    // Example:
-    // router.push(`/jobs/${id}`);
-  };
-
-  const handleEdit = (id) => {
-    console.log("Edit job:", id);
-
-    // Example:
-    // router.push(`/jobs/edit/${id}`);
-  };
+ 
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
@@ -91,7 +79,7 @@ const GetJobs = ({setShowCreate}) => {
   return (
     <div className="w-full min-h-screen bg-white dark:bg-black text-black dark:text-white p-4 sm:p-6">
 
-      {/* Header */}
+   
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
 
         <div>
@@ -131,7 +119,7 @@ const GetJobs = ({setShowCreate}) => {
         </button>
       </div>
 
-      {/* Search */}
+  
       <div className="mb-5">
         <div className="relative max-w-md">
 
@@ -166,7 +154,7 @@ const GetJobs = ({setShowCreate}) => {
         </div>
       </div>
 
-      {/* Table */}
+    
       <div
         className="
           w-full
@@ -230,7 +218,7 @@ const GetJobs = ({setShowCreate}) => {
                     Loading jobs...
                   </td>
                 </tr>
-              ) : filteredJobs.length === 0 ? (
+              ) : filteredJobs?.length === 0 ? (
                 <tr>
                   <td
                     colSpan="7"
@@ -240,7 +228,7 @@ const GetJobs = ({setShowCreate}) => {
                   </td>
                 </tr>
               ) : (
-                filteredJobs.map((job, index) => (
+                filteredJobs?.map((job, index) => (
                   <tr
                     key={job._id}
                     className="
@@ -396,7 +384,7 @@ const GetJobs = ({setShowCreate}) => {
         </div>
       </div>
 
-      {/* Footer */}
+
       {!loading && filteredJobs.length > 0 && (
         <div className="flex justify-between items-center mt-4 text-sm text-gray-500 dark:text-gray-400">
           <span>

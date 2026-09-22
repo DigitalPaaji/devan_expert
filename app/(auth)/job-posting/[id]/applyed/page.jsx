@@ -26,7 +26,7 @@ const Page = () => {
   const [jobData, setJobData] = useState([]);
 
   const fetchJobPosted = async () => {
-    try {
+    try {npm run dev
       setLoading(true);
 
       const response = await axios.get(
@@ -264,17 +264,7 @@ const ApplicantCard = ({
             </span>
           )}
 
-          {application?.resume && (
-            <a
-              href={resumeUrl}
-              download
-              className="flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
-            >
-              <FiDownload size={17} />
-
-              Download
-            </a>
-          )}
+        
         </div>
       </div>
 
