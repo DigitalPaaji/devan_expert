@@ -26,7 +26,7 @@ const Page = () => {
   const [jobData, setJobData] = useState([]);
 
   const fetchJobPosted = async () => {
-    try {npm run dev
+    try {
       setLoading(true);
 
       const response = await axios.get(
